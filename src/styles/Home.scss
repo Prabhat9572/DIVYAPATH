@@ -82,82 +82,12 @@
   }
 }
 
-.horizontal-scroll {
-  display: flex;
-  overflow-x: auto;
-  gap: 1rem;
-  scroll-behavior: smooth;
-  padding: 1rem 0;
-
-  &::-webkit-scrollbar {
-    height: 6px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 10px;
-  }
-
-  &::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
-}
-
-.book-card {
-  min-width: 220px;
-  flex: 0 0 auto;
-  background: #fff;
-  border-radius: 10px;
-  padding: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-
-  img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-  }
-
-  h3 {
-    font-size: 1.1rem;
-    margin: 0.5rem 0;
-  }
-
-  .button-group {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-
-    .buy-button,
-    .read-button {
-      flex: 1;
-      padding: 0.4rem;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
-      font-weight: bold;
-      text-align: center;
-    }
-
-    .buy-button {
-      background-color: #ffd700;
-      color: #000;
-    }
-
-    .read-button {
-      background-color: #00bcd4;
-      color: #fff;
-    }
-  }
-}
-
 .more-books-button-container {
   margin-top: 2rem;
   text-align: center;
 
   .more-books-button {
-    background-color: #ff9800;
+    background-color: #a47551;
     color: white;
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
@@ -168,14 +98,14 @@
     transition: background-color 0.3s ease;
 
     &:hover {
-      background-color: #f57c00;
+      background-color: black;
     }
   }
 }
 
 .ved-books-section,
 .spiritual-books-section {
-  padding: 3rem 2rem;
+  padding: 1rem 2rem;
   background: #f9f9f9;
 
   h2 {
@@ -190,7 +120,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 2rem;
+    gap: 3rem;
   }
 
   .book-card {
@@ -220,22 +150,38 @@
 
     .button-group {
       display: flex;
-      justify-content: space-around;
+      justify-content: center;
+      gap: 10px;
       margin-bottom: 1rem;
 
-      .buy-button,
-      .read-button {
-        background-color: #ff9933;
+      .buy-button {
+        background-color: #a47551;
+        color: white;
         border: none;
         padding: 0.5rem 1rem;
-        color: white;
         border-radius: 5px;
-        text-decoration: none;
         cursor: pointer;
-        font-weight: 600;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
 
         &:hover {
-          background-color: #e57c00;
+          background-color: #8a5e3b;
+        }
+      }
+
+      .read-button {
+        background-color: #fff;
+        color: #000;
+        padding: 6px 12px;
+        border: 1px solid #333;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: bold;
+        transition: background-color 0.3s ease, color 0.3s ease;
+
+        &:hover {
+          background-color: #000;
+          color: #fff;
         }
       }
     }
@@ -312,35 +258,35 @@
       }
     }
   }
+
   .scroll-popup-message {
-  position: fixed;
-  bottom: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #333;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 30px;
-  font-size: 0.7rem;
-  font-weight: bold;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-  animation: fadeInUp 0.3s ease;
-  cursor: pointer;
-  transition: opacity 0.3s ease;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translate(-50%, 50px);
+    position: fixed;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    animation: fadeInUp 0.3s ease;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
   }
-  to {
-    opacity: 1;
-    transform: translate(-50%, 0);
-  }
-}
 
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translate(-50%, 50px);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+  }
 
   @media (max-width: 1024px) {
     .hero {

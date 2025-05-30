@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import '../styles/Home.scss';
 import Hero from '../assets/hero.avif';
 import RashifalForm from '../components/RashifalForm';
+import ServiceIcons from '../pages/ServiceIcons';
 
 // Veda Book Images
 import RigvedaImg from '../assets/rigveda.jpg';
@@ -75,6 +76,8 @@ const Home = () => {
         </div>
       </section>
 
+      <ServiceIcons />
+
       {/* Rashifal Form */}
       <RashifalForm />
 
@@ -130,7 +133,7 @@ const Home = () => {
         {/* View More Button */}
         <div className="more-books-button-container">
           <button className="more-books-button">
-            View More Spiritual Texts
+            View More
           </button>
         </div>
       </section>

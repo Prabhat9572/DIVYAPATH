@@ -1,6 +1,7 @@
 // src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Astrology from './pages/Astrology';
 
 import './App.css';
 
@@ -32,6 +33,7 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/join" element={<Join />} />
+            <Route path="/astrology" element={<Astrology />} />
         </Routes>
 
         <Footer />
