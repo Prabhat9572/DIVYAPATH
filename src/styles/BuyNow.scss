@@ -1,0 +1,50 @@
+// BuyNow.scss
+
+div {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 30px;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background-color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 28px;
+  }
+
+  h3 {
+    color: #34495e;
+    font-weight: 600;
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 18px;
+    color: #7f8c8d;
+    margin-bottom: 30px;
+  }
+
+  button {
+    display: block;
+    width: 100%;
+    background-color: #27ae60;
+    color: white;
+    font-size: 18px;
+    padding: 12px 0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #219150;
+    }
+  }
+}
