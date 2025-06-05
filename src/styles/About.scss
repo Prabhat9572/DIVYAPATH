@@ -1,0 +1,233 @@
+// src/styles/About.scss
+
+.about-page {
+  font-family: "Segoe UI", sans-serif;
+  color: #333;
+  padding: 2rem;
+  background-color: #fef9f3;
+
+  h1, h2, h3 {
+    color: #7c4d00;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 1rem;
+    margin-bottom: 2rem;
+
+    li {
+      position: relative;
+      padding-left: 1.2rem;
+      margin-bottom: 0.5rem;
+
+      &::before {
+        content: '✔️';
+        position: absolute;
+        left: 0;
+        top: 0.1rem;
+      }
+    }
+  }
+}
+
+/* -------- About Section -------- */
+.about-section {
+  max-width: 900px;
+  margin: 0 auto 3rem;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+  }
+}
+
+/* -------- Astrologer Section -------- */
+.astrologer-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  background: #fff3e6;
+  padding: 2rem;
+  border-radius: 10px;
+  margin: 0 auto 3rem;
+  max-width: 900px;
+  align-items: center;
+
+  .astrologer-img {
+    width: 250px;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 4px solid #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .astrologer-info {
+    flex: 1;
+
+    h2 {
+      color: #7c4d00;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+  }
+}
+
+/* -------- App Download -------- */
+.app-download {
+  background: #fff;
+  border: 2px dashed #ffe0b2;
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 3rem;
+  text-align: center;
+
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #d35400;
+  }
+
+  p {
+    margin-bottom: 1rem;
+    color: #444;
+  }
+
+  .store-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+
+    a {
+      display: inline-block;
+      transition: transform 0.3s;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      img {
+        height: 60px;
+      }
+    }
+  }
+}
+
+/* -------- Feedback Section -------- */
+.feedback-section {
+  background: #fff9f0;
+  padding: 2rem;
+  border-radius: 10px;
+  margin: 0 auto 3rem;
+  max-width: 900px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+
+  h2 {
+    font-size: 2rem;
+    color: #e18700;
+    margin-bottom: 1.5rem;
+  }
+
+  .feedback-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+
+    input, textarea {
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+      resize: none;
+
+      &:focus {
+        border-color: #ff9800;
+      }
+    }
+
+    button {
+      align-self: center;
+      padding: 0.5rem 1.5rem;
+      background-color: #ff9800;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #e67e22;
+      }
+    }
+  }
+
+  .feedback-list {
+    display: grid;
+    gap: 1rem;
+
+    .feedback-card {
+      background: #fff;
+      border-left: 5px solid #ffa726;
+      padding: 1rem;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+
+      h4 {
+        margin-bottom: 0.3rem;
+        font-size: 1.1rem;
+        color: #5d4037;
+      }
+
+      p {
+        font-size: 0.95rem;
+        color: #333;
+      }
+    }
+  }
+}
+
+/* -------- Responsive -------- */
+@media screen and (max-width: 768px) {
+  .astrologer-section {
+    flex-direction: column;
+    text-align: center;
+
+    .astrologer-img {
+      width: 200px;
+    }
+
+    .astrologer-info {
+      h2 {
+        margin-top: 1rem;
+      }
+    }
+  }
+
+  .store-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .feedback-form button {
+    width: 100%;
+  }
+}

@@ -1,5 +1,5 @@
 // src/components/ServiceIcons.jsx
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/ServiceIcons.scss';
 import {
@@ -15,6 +15,8 @@ import {
   FileText,
   ShoppingBag,
   SunMoon,
+  ChevronLeft,
+  ChevronRight,
 } from 'lucide-react';
 
 const services = [
@@ -34,10 +36,38 @@ const services = [
 
 const ServiceIcons = () => {
   const navigate = useNavigate();
+  const scrollRef = useRef(null);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const scrollLeft = () => {
+    scrollRef.current.scrollBy({ left: -200, behavior: 'smooth' });
+  };
+
+  const scrollRight = () => {
+    scrollRef.current.scrollBy({ left: 200, behavior: 'smooth' });
+  };
+
+  // Auto-scroll every 4 seconds unless hovered
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!isHovered && scrollRef.current) {
+        scrollRef.current.scrollBy({ left: 200, behavior: 'smooth' });
+      }
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [isHovered]);
 
   return (
-    <div className="service-icons-wrapper">
-      <div className="service-icons">
+    <div
+      className="service-icons-wrapper"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <button className="scroll-btn left" onClick={scrollLeft} aria-label="Scroll Left">
+        <ChevronLeft size={24} />
+      </button>
+
+      <div className="service-icons" ref={scrollRef}>
         {services.map((item, index) => (
           <button
             key={index}
@@ -51,6 +81,10 @@ const ServiceIcons = () => {
           </button>
         ))}
       </div>
+
+      <button className="scroll-btn right" onClick={scrollRight} aria-label="Scroll Right">
+        <ChevronRight size={24} />
+      </button>
     </div>
   );
 };

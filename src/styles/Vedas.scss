@@ -1,0 +1,224 @@
+// src/styles/Vedas.scss
+
+.vedas-section {
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fffaf4;
+  font-family: "Segoe UI", sans-serif;
+  color: #333;
+
+  h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #7b3f00;
+    margin-bottom: 2rem;
+  }
+
+  .ved-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+
+    .ved-button {
+      background-color: #f2e3ce;
+      border: 2px solid #ffa726;
+      padding: 0.7rem 1.2rem;
+      border-radius: 20px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      color: #7c4d00;
+
+      &.active,
+      &:hover {
+        background-color: #ffa726;
+        color: #fff;
+        border-color: #e67e22;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .ved-details {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff2e6;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2.5rem;
+
+    img {
+      max-width: 280px;
+      height: auto;
+      border-radius: 12px;
+      margin-right: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .ved-text {
+      max-width: 500px;
+
+      h2 {
+        font-size: 2rem;
+        color: #6d4100;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        font-size: 1.1rem;
+        color: #444;
+        line-height: 1.6;
+      }
+    }
+  }
+
+  .read-button {
+  background-color: #f57c00;
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+
+  &:hover {
+    background-color: #ef6c00;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  &:active {
+    transform: scale(0.98);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  }
+}
+
+
+  h3 {
+    font-size: 1.8rem;
+    color: #7b3f00;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .book-cards-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 1.5rem;
+    padding-bottom: 1rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+
+    .book-card {
+      scroll-snap-align: start;
+      flex: 0 0 auto;
+      background-color: #fef6ef;
+      border: 1px solid #e2c5a3;
+      border-radius: 10px;
+      padding: 1rem;
+      width: 180px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+      text-align: center;
+      transition: transform 0.3s;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 0.7rem;
+      }
+
+      h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+        color: #5c3b00;
+      }
+
+      .book-description {
+        font-size: 0.9rem;
+        color: #555;
+        margin-bottom: 0.8rem;
+        min-height: 48px;
+      }
+
+      .button-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+
+        .buy-button,
+        .read-button {
+          border: none;
+          padding: 0.5rem 0.8rem;
+          font-size: 0.9rem;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+        }
+
+        .buy-button {
+          background-color: #e29536;
+          color: white;
+
+          &:hover {
+            background-color: #c6760a;
+          }
+        }
+
+        .read-button {
+          background-color: #ddd;
+          color: #333;
+          text-decoration: none;
+          display: inline-block;
+
+          &:hover {
+            background-color: #bbb;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .vedas-section {
+    padding: 1.2rem;
+
+    .ved-details {
+      flex-direction: column;
+
+      img {
+        margin-right: 0;
+        margin-bottom: 1rem;
+        width: 80%;
+        max-width: 300px;
+      }
+
+      .ved-text {
+        text-align: center;
+      }
+    }
+
+    .book-cards-container {
+      padding-left: 0.5rem;
+      gap: 1rem;
+    }
+  }
+}

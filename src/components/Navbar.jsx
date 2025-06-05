@@ -6,7 +6,6 @@ import { faFacebook, faYoutube, faTwitter } from '@fortawesome/free-brands-svg-i
 import { Link } from 'react-router-dom';
 import space from '../assets/space.mp4'; // adjust the path based on file location
 
-
 const GeneratedLogo = () => (
   <svg
     width="50"
@@ -33,8 +32,7 @@ const Navbar = () => {
         {/* Universe Video Background */}
         <div className="video-wrapper">
           <video autoPlay loop muted playsInline className="top-bar-video-bg">
-           <source src={space} type="video/mp4" />
-
+            <source src={space} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
@@ -72,10 +70,13 @@ const Navbar = () => {
         <ul className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
           <li><Link to="/" onClick={() => setMobileMenuOpen(false)}>Home</Link></li>
           <li><Link to="/about" onClick={() => setMobileMenuOpen(false)}>About Us</Link></li>
-          <li><Link to="/ashram" onClick={() => setMobileMenuOpen(false)}>Vedas</Link></li>
+          {/* Removed the old /ashram link which was wrongly named 'Vedas' */}
+                    <li><Link to="/vedas" onClick={() => setMobileMenuOpen(false)}>Vedas</Link></li>
+
           <li><Link to="/services" onClick={() => setMobileMenuOpen(false)}>Services</Link></li>
           <li><Link to="/contact" onClick={() => setMobileMenuOpen(false)}>Contact Us</Link></li>
           <li><Link to="/join" onClick={() => setMobileMenuOpen(false)}>Join Us</Link></li>
+          {/* Correct single Vedas link */}
         </ul>
 
         <button className="donate-btn" aria-label="Donate Button">Donate</button>

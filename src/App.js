@@ -1,4 +1,3 @@
-// src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -12,11 +11,12 @@ import Join from './pages/Join';
 import Astrology from './pages/Astrology';
 import BuyStones from './pages/BuyStones';
 import StoneDetail from './pages/StoneDetail';
-import BuyNow from './components/BuyNow'; // ✅ BuyNow component
 
 // Import components
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import BuyNow from './components/BuyNow'; // BuyNow component
+import Vedas from './pages/Vedas';  // Import Vedas without curly braces (default export)
 
 import './App.css';
 
@@ -24,11 +24,10 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Navbar />
+        <Navbar />  {/* Make sure Navbar has link to /vedas */}
 
         <Routes>
           <Route path="/" element={<Home />} />
-           <Route path="/buy-now" element={<BuyNow />} />
           <Route path="/about" element={<About />} />
           <Route path="/ashram" element={<Ashram />} />
           <Route path="/services" element={<Services />} />
@@ -37,7 +36,8 @@ function App() {
           <Route path="/astrology" element={<Astrology />} />
           <Route path="/buy-stones" element={<BuyStones />} />
           <Route path="/stone/:id" element={<StoneDetail />} />
-          <Route path="/buynow" element={<BuyNow />} /> {/* ✅ Route added here */}
+          <Route path="/buy-now" element={<BuyNow />} />
+          <Route path="/vedas" element={<Vedas />} />
         </Routes>
 
         <Footer />
