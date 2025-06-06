@@ -1,10 +1,9 @@
-// src/components/Navbar.jsx
 import React, { useState } from 'react';
 import '../styles/Navbar.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faYoutube, faTwitter } from '@fortawesome/free-brands-svg-icons';
-import { Link } from 'react-router-dom';
-import space from '../assets/space.mp4'; // adjust the path based on file location
+import { Link, useNavigate } from 'react-router-dom';  // Import useNavigate
+import space from '../assets/space.mp4'; // Adjust path if needed
 
 const GeneratedLogo = () => (
   <svg
@@ -15,7 +14,15 @@ const GeneratedLogo = () => (
     aria-label="VedRishi Logo"
   >
     <circle cx="50" cy="50" r="45" fill="#A47551" stroke="black" strokeWidth="5" />
-    <text x="50%" y="55%" textAnchor="middle" fill="white" fontSize="28" fontFamily="Georgia" dy=".3em">
+    <text
+      x="50%"
+      y="55%"
+      textAnchor="middle"
+      fill="white"
+      fontSize="28"
+      fontFamily="Georgia"
+      dy=".3em"
+    >
       ॐ
     </text>
   </svg>
@@ -23,13 +30,20 @@ const GeneratedLogo = () => (
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();  // useNavigate hook
 
   const toggleMenu = () => setMobileMenuOpen(!mobileMenuOpen);
+  const closeMenu = () => setMobileMenuOpen(false);
+
+  // New function for Donate button click
+  const handleDonateClick = () => {
+    closeMenu();            // Close mobile menu if open
+    navigate('/donate');    // Navigate to Donate page route
+  };
 
   return (
     <header className="navbar-container">
       <div className="top-bar">
-        {/* Universe Video Background */}
         <div className="video-wrapper">
           <video autoPlay loop muted playsInline className="top-bar-video-bg">
             <source src={space} type="video/mp4" />
@@ -37,7 +51,6 @@ const Navbar = () => {
           </video>
         </div>
 
-        {/* Content on Top of Video */}
         <div className="logo-title">
           <GeneratedLogo />
           <div className="title">
@@ -47,7 +60,12 @@ const Navbar = () => {
       </div>
 
       <nav className="main-nav">
-        <button className="menu-toggle" onClick={toggleMenu} aria-label="Toggle Menu">
+        <button
+          className="menu-toggle"
+          onClick={toggleMenu}
+          aria-label="Toggle Menu"
+          aria-expanded={mobileMenuOpen}
+        >
           <div className={`hamburger ${mobileMenuOpen ? 'open' : ''}`}>
             <span></span>
             <span></span>
@@ -56,30 +74,52 @@ const Navbar = () => {
         </button>
 
         <div className="social-icons">
-          <a href="#" aria-label="Facebook">
+          <a href="#" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faFacebook} />
           </a>
-          <a href="#" aria-label="YouTube">
+          <a href="#" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faYoutube} />
           </a>
-          <a href="#" aria-label="Twitter">
+          <a href="#" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faTwitter} />
           </a>
         </div>
 
         <ul className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
-          <li><Link to="/" onClick={() => setMobileMenuOpen(false)}>Home</Link></li>
-          <li><Link to="/about" onClick={() => setMobileMenuOpen(false)}>About Us</Link></li>
-          {/* Removed the old /ashram link which was wrongly named 'Vedas' */}
-                    <li><Link to="/vedas" onClick={() => setMobileMenuOpen(false)}>Vedas</Link></li>
-
-          <li><Link to="/services" onClick={() => setMobileMenuOpen(false)}>Services</Link></li>
-          <li><Link to="/contact" onClick={() => setMobileMenuOpen(false)}>Contact Us</Link></li>
-          <li><Link to="/join" onClick={() => setMobileMenuOpen(false)}>Join Us</Link></li>
-          {/* Correct single Vedas link */}
+          <li>
+            <Link to="/" onClick={closeMenu}>
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/about" onClick={closeMenu}>
+              About Us
+            </Link>
+          </li>
+          <li>
+            <Link to="/vedas" onClick={closeMenu}>
+              Vedas
+            </Link>
+          </li>
+          <li>
+            <Link to="/services" onClick={closeMenu}>
+              Services
+            </Link>
+          </li>
+          <li>
+            <Link to="/contact" onClick={closeMenu}>
+              Contact Us
+            </Link>
+          </li>
         </ul>
 
-        <button className="donate-btn" aria-label="Donate Button">Donate</button>
+        <button
+          className="donate-btn"
+          aria-label="Donate Button"
+          onClick={handleDonateClick}  // Use the new function here
+        >
+          Donate
+        </button>
       </nav>
     </header>
   );
